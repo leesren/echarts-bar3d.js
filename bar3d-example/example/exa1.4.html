@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.__DEV__ = false;
+    </script>
+    <script src="../echarts.js"></script>
+    <script>
+        var _echarts3 = echarts
+    </script>
+    <script src='../../dist/echarts-bar3d.js'></script>
+</head>
+
+<body>
+    <style>
+        html,
+        body,
+        #main {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        #main {
+            width: 800px;
+            height: 400px;
+        }
+    </style>
+    <div id="main"></div>
+</body>
+<script>
+    var chart = echarts.init(document.getElementById('main'), null, {
+        renderer: 'canvas'
+    });
+    function getData() {
+        return [Math.floor(400 * Math.random()),
+        Math.floor(400 * Math.random()),
+        ]
+    }
+
+
+    chart.setOption({
+        backgroundColor: "rgba(1, 5, 13, 1)",
+        legend: {
+            show: false
+        },
+        tooltip: {
+            show: false
+        },
+        grid: [{
+            show: false,
+        }],
+        xAxis: {
+            type: 'category',
+            axisLabel: { color: 'rgba(235,240,255,1)', textStyle: { color: '#fff' } },
+            axisLine: {
+                show: false,
+            },
+            axisTick: { show: false },
+            data: ['周一', '周二',]
+        },
+        yAxis: [
+            {
+                type: 'value',
+                axisLabel: { color: '#fff', textStyle: { color: '#fff' } },
+                splitLine: {
+                    lineStyle: {
+                        color: "rgba(255,255,255,0.1)"
+                    }
+                },
+                axisLine: {
+                    show: false,
+                }
+            }
+        ],
+
+        textStyle: {
+            normal: {
+                color: '#fff'
+            },
+            color: '#fff'
+        },
+        color: ['rgba(96, 68, 208, 1)', 'rgba(125, 82, 240, 1)'],
+        series: [
+            {
+                name: '直接访问',
+                type: 'bar3d',
+                barType: 'cube',
+                data: getData(),
+                silent: true,
+                label: {
+                    normal: {
+                        verticalAlign: "middle",
+                        show: true,
+                        position: [14, -35],
+                        align: "center",
+                        height: 30,
+                        width: 50,
+                        lineHeight: 22,
+                        formatter: '{c}',
+                        backgroundColor: {
+                            image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAA8AgMAAADtUfddAAAADFBMVEUAAABVQL9UP8NUP8MTHNUPAAAAA3RSTlMADMNUrhjYAAAAVUlEQVQ4y2P4jwuMyozKjMqMygxxGTjIB3F/MmAB0iCZJ9hk2EAyE7DJMO7///+fAwM2kI+wBtOiJ9hl2ODWYFoEswbTIpg1mBY9wSXDNgGXDCOKNQCkFsytuOR0kgAAAABJRU5ErkJggg==',
+                        },
+                        rich: {
+
+                        }
+                    }
+                },
+            }
+        ],
+        barWidth: 20
+    });
+</script>
+
+</html>

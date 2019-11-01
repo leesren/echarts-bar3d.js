@@ -1,0 +1,22 @@
+{
+  "name": "echarts-bar3d.js",
+  "version": "1.0.1",
+  "description": "ECharts bar3d",
+  "main": "index.js",
+  "author": "leesren@foxmail.com",
+  "scripts": {
+    "start": "webpack --mode=development --config webpack.config.dev.js",
+    "build": "webpack --mode=production --config webpack.config.prod.js",
+    "serve": "browser-sync start --no-open --server --files **/*.html, /bar/**/*, dist/*.js"
+  },
+  "license": "BSD",
+  "dependencies": {
+    "echarts": "^3.8.4",
+    "zrender": "^4.0.4"
+  },
+  "devDependencies": {
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "browser-sync": "^2.26.7"
+  }
+}
